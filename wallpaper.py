@@ -16,8 +16,11 @@ sys.setdefaultencoding('utf8')
 
 class Wallpaper:
 
-    def __init__(self):
+    def __init__(self, time=60):
         self.count = 0
+        if time <= 0 :
+            self.time = 60
+        self.time = time
         self.urltemplate = 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=%d&n=1&nc=1361089515117&FORM=HYLH1'
         self.baImageUrlList = []
         self.localFileName  = ''
@@ -88,51 +91,8 @@ class Wallpaper:
 
 
 if __name__ == '__main__':
-    header={
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate, sdch',
-        'Accept-Language': 'zh-CN,zh;q=0.8',
-        'Connection': 'keep-alive',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'
-    }
-    url = 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=%d&n=1&nc=1361089515117&FORM=HYLH1'
 
-    bing = Wallpaper()
-
+    bing = Wallpaper(10)
     bing.statr()
 
-
-    #content = urllib.urlopen(url).read()
-    # decodedjson = json.loads(content)
-    # print(decodedjson['images'][0]['url'])
-
-    #for i in range(0, 20, 1):
-    # myurl = url % 0
-    #
-    # content = urllib.urlopen(myurl).read()
-    # decodedjson = json.loads(content)
-    # imagurl = decodedjson['images'][0]['url']
-    # print(decodedjson['images'][0]['url'])
-    #
-    # imagename = os.path.basename(imagurl)
-    # conn = urllib.urlopen(imagurl)
-    # f = open(imagename, 'wb')
-    # f.write(conn.read())
-    # f.close()
-
-
-
-
-    #print(content)
-    #print(content.decode("utf8"))
-
-    # setWallPaper(StoreFolder + "/003_meitu_1.jpg")
-    # get_photo_list()
-    # set_wall_func()
-
-    # imagePath = 'c:/desktop/1406557hc2m6m0h2cac07k.jpg.thumb.jpg'
-    # file_name = os.path.basename(imagePath)
-    # file_name_type = os.path.splitext(file_name)
-    # file_type = file_name_type[1]
-    # file_name = file_name_type[0]
 
